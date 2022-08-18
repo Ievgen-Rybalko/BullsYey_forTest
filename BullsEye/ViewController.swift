@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     let defaultGameStyle = defaults.integer(forKey: "gameStyle")
-    print(defaultGameStyle)
+    print("defaultGameStyle: \(defaultGameStyle)")
     if gameStyleRange.contains(defaultGameStyle) {
       gameStyle = GameStyle(rawValue: defaultGameStyle) ?? .moveSlider
       segmentedControl.selectedSegmentIndex = defaultGameStyle
@@ -68,6 +68,8 @@ class ViewController: UIViewController {
       updateView()
     }
     defaults.set(sender.selectedSegmentIndex, forKey: "gameStyle")
+    print("currentGameStyle: \(sender.selectedSegmentIndex)")
+
   }
 
   func updateView() {
